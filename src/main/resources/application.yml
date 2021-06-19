@@ -1,0 +1,28 @@
+server:
+  port: 9001
+
+spring:
+  main.banner-mode: off
+  output.ansi.enabled: ALWAYS
+  appicaton.name: b2b-api-auth
+  profiles.active: development
+
+  datasource:
+    username: postgres
+    password: Ivb8919
+    driverClassName: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    properties.hibernate.format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+---
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:postgresql://localhost:5432/b2b-mobite
+---
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:postgresql://localhost:5432/b2b-mobite

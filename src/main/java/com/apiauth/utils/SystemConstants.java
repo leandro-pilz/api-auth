@@ -9,7 +9,7 @@ public class SystemConstants {
     }
 
     public interface Prefix {
-        String BEARER_PREFIX = "Bearar ";
+        String BEARER_PREFIX = "Bearer ";
     }
 
     public interface DB {

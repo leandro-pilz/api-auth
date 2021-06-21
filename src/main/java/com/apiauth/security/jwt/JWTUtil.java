@@ -18,7 +18,7 @@ public class JWTUtil {
     // http://www.allkeysgenerator.com
     private static final String JWT_SECRET = "t6w9z$C&F)J@NcRfUjXn2r5u8x!A%D*G-KaPdSgVkYp3s6v9y$B?E(H+MbQeThWm";
 
-    @Nullable
+    @NonNull
     private static byte[] signinKey() {
         return JWT_SECRET.getBytes();
     }

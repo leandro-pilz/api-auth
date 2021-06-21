@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import static com.apiauth.utils.ConstantsDb.*;
+import static com.apiauth.utils.SystemConstants.DB.*;
 
 @Builder
 @Data

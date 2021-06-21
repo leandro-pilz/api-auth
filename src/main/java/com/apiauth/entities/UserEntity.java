@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
-import static com.apiauth.utils.ConstantsDb.*;
+import static com.apiauth.utils.SystemConstants.DB.*;
 
 @Builder
 @Data

@@ -9,6 +9,7 @@ import org.springframework.lang.Nullable;
 import java.util.Date;
 import java.util.UUID;
 
+import static com.apiauth.utils.SystemConstants.Prefix.BEARER_PREFIX;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
@@ -17,15 +18,17 @@ public class JWTUtil {
     // http://www.allkeysgenerator.com
     private static final String JWT_SECRET = "t6w9z$C&F)J@NcRfUjXn2r5u8x!A%D*G-KaPdSgVkYp3s6v9y$B?E(H+MbQeThWm";
 
+    @Nullable
     private static byte[] signinKey() {
         return JWT_SECRET.getBytes();
     }
 
+    @Nullable
     private static Claims getClaims(String token) {
         try {
             return Jwts.parser()
                     .setSigningKey(signinKey())
-                    .parseClaimsJws(token.substring(7)).getBody();
+                    .parseClaimsJws(token.replace(BEARER_PREFIX, "")).getBody();
         } catch (Exception e) {
             return null;
         }

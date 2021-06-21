@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
-import static com.apiauth.utils.ApiRoutes.BASE_URL;
+import static com.apiauth.utils.SystemConstants.ApiRoutes.BASE_URL;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 

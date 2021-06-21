@@ -21,7 +21,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
 
-import static com.apiauth.utils.ApiRoutes.BASE_URL;
+import static com.apiauth.utils.SystemConstants.ApiRoutes.BASE_URL;
 
 @Configuration
 @EnableWebSecurity

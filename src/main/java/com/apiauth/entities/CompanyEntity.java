@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-import static com.apiauth.utils.ConstantsDb.*;
+import static com.apiauth.utils.SystemConstants.DB.*;
 
 @Builder
 @Data

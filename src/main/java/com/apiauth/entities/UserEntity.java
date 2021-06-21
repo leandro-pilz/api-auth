@@ -12,7 +12,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
-import static com.apiauth.utils.SystemConstants.DB.*;
+import static com.apiauth.utils.SystemConstants.DB.COLUMN.*;
+import static com.apiauth.utils.SystemConstants.DB.TABLE.PERMISSION_TABLE_NAME;
+import static com.apiauth.utils.SystemConstants.DB.TABLE.USER_TABLE_NAME;
 
 @Builder
 @Data

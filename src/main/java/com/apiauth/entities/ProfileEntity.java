@@ -11,7 +11,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import static com.apiauth.utils.SystemConstants.DB.*;
+import static com.apiauth.utils.SystemConstants.DB.COLUMN.COLUMN_ID;
+import static com.apiauth.utils.SystemConstants.DB.COLUMN.COLUMN_NAME;
+import static com.apiauth.utils.SystemConstants.DB.TABLE.PROFILE_TABLE_NAME;
 
 @Builder
 @Data

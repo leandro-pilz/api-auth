@@ -10,7 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import static com.apiauth.utils.SystemConstants.DB.*;
+import static com.apiauth.utils.SystemConstants.DB.COLUMN.*;
+import static com.apiauth.utils.SystemConstants.DB.TABLE.PERMISSION_TABLE_NAME;
 
 @Builder
 @Data

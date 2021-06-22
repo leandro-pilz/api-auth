@@ -9,12 +9,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
-import static com.apiauth.utils.SystemConstants.DB.COLUMN.*;
-import static com.apiauth.utils.SystemConstants.DB.TABLE.PERMISSION_TABLE_NAME;
-import static com.apiauth.utils.SystemConstants.DB.TABLE.USER_TABLE_NAME;
+import static com.apiauth.utils.SystemConstants.DB.COLUMNS.*;
+import static com.apiauth.utils.SystemConstants.DB.TABLES.USER_TABLE_NAME;
 
 @Builder
 @Data
@@ -46,19 +44,13 @@ public class UserEntity implements UserDetails {
     @Column(name = COLUMN_STATUS)
     private Boolean status;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = PERMISSION_TABLE_NAME,
-            joinColumns = @JoinColumn(name = COLUMN_USER_ID, referencedColumnName = COLUMN_ID),
-            inverseJoinColumns = @JoinColumn(name = COLUMN_PROFILE_ID, referencedColumnName = COLUMN_ID))
-    private List<ProfileEntity> roles;
-
     @ManyToOne
     @JoinColumn(name = COLUMN_COMPANY_ID, nullable = false, insertable = false, updatable = false)
     private CompanyEntity company;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+        return null;
     }
 
     @Override

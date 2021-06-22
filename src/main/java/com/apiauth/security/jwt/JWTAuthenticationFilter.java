@@ -25,7 +25,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
-import static com.apiauth.utils.SystemConstants.ApiRoutes.BASE_URL;
+import static com.apiauth.utils.MessageExceptions.UNIDENTIFIED_USER;
+import static com.apiauth.utils.SystemConstants.API.BASE_URL;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -48,7 +49,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             AuthDto login = new ObjectMapper().readValue(request.getInputStream(), AuthDto.class);
 
             if (StringUtils.isEmpty(login.getLogin()) || StringUtils.isEmpty(login.getPassword())) {
-                throw new BadCredentialsException("Usuário ou senha não informado, verifique!");
+                throw new BadCredentialsException(UNIDENTIFIED_USER);
             }
 
             Authentication auth = new UsernamePasswordAuthenticationToken(login.getLogin(), login.getPassword(), new ArrayList<>());

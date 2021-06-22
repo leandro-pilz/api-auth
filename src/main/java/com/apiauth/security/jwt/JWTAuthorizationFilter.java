@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.apiauth.utils.SystemConstants.Prefix.BEARER_PREFIX;
 import static java.util.Objects.nonNull;
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
@@ -32,7 +33,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                                     FilterChain chain) throws IOException, ServletException {
 
         String header = request.getHeader(AUTHORIZATION);
-        if (header != null && header.startsWith("Bearer ")) {
+        if (header != null && header.startsWith(BEARER_PREFIX)) {
             UsernamePasswordAuthenticationToken auth = getAuthentication(header);
             if (nonNull(auth)) {
                 SecurityContextHolder.getContext().setAuthentication(auth);

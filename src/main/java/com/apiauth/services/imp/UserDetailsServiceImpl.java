@@ -9,8 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.UUID;
+
+import static com.apiauth.utils.MessageExceptions.*;
 
 @Service(value = "userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsServiceCustom {
@@ -20,30 +21,29 @@ public class UserDetailsServiceImpl implements UserDetailsServiceCustom {
 
     @Override
     public UserDetails loadUserByUsername(@NonNull String login) throws UsernameNotFoundException {
-        final Optional<UserEntity> user = repository.findByEmail(login);
-        if (user.isEmpty()) {
-            throw new UsernameNotFoundException("Usuário não inexistente.");
+        final UserEntity user = repository.findByEmail(login)
+                .orElseThrow(() -> new UsernameNotFoundException(USER_NOTFOUND));
+
+        if (!user.getStatus()) {
+            throw new UsernameNotFoundException(USER_BLOCKED);
         }
 
-        if (!user.get().getStatus()) {
-            throw new UsernameNotFoundException("Usuário bloqueado, entre em contato com o administrador do sistema.");
+        if (!user.getCompany().getStatus()) {
+            throw new UsernameNotFoundException(COMPANY_BLOCKED);
         }
 
-        if (!user.get().getCompany().getStatus()) {
-            throw new UsernameNotFoundException("Empresa bloqueada, entre em contato com o administrador do sistema.");
-        }
-
-        return user.get();
+        return user;
     }
 
     @Override
     public UserDetails loadUserByUuid(String uuid) throws UsernameNotFoundException {
-        final Optional<UserEntity> user = repository.findByUuid(UUID.fromString(uuid));
-        if (user.isEmpty()) {
-            throw new UsernameNotFoundException("Usuário inexistente");
-        } else if (!user.get().getStatus()) {
-            throw new UsernameNotFoundException("Usuário bloqueado, entre em contato com o administrador do sistema.");
+        final UserEntity user = repository.findByUuid(UUID.fromString(uuid))
+                .orElseThrow(() -> new UsernameNotFoundException(USER_NOTFOUND));
+
+        if (!user.getStatus()) {
+            throw new UsernameNotFoundException(USER_BLOCKED);
         }
-        return user.get();
+
+        return user;
     }
 }

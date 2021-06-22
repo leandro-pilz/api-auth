@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.apiauth.utils.SystemConstants.ApiRoutes.REFRESH_ROUTE;
+import static com.apiauth.utils.SystemConstants.API.REFRESH_ROUTE;
 
 @RestController
 @RequestMapping(value = REFRESH_ROUTE)

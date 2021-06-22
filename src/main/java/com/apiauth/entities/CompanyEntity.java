@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-import static com.apiauth.utils.SystemConstants.DB.COLUMN.COLUMN_ID;
-import static com.apiauth.utils.SystemConstants.DB.COLUMN.COLUMN_STATUS;
-import static com.apiauth.utils.SystemConstants.DB.TABLE.COMPANY_TABLE_NAME;
+import static com.apiauth.utils.SystemConstants.DB.COLUMNS.COLUMN_ID;
+import static com.apiauth.utils.SystemConstants.DB.COLUMNS.COLUMN_STATUS;
+import static com.apiauth.utils.SystemConstants.DB.TABLES.COMPANY_TABLE_NAME;
 
 @Builder
 @Data
